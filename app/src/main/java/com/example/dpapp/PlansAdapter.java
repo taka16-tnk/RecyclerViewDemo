@@ -1,6 +1,7 @@
 package com.example.dpapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.PlanViewHolder> {
@@ -36,6 +38,18 @@ public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.PlanViewHold
         holder.plan.setText(plan[position]);
         holder.desc.setText(desc[position]);
         holder.myImage.setImageResource(images[position]);
+
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("plan", plan[position]);
+                intent.putExtra("desc", desc[position]);
+                intent.putExtra("myImage", images[position]);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,12 +61,14 @@ public class PlansAdapter extends RecyclerView.Adapter<PlansAdapter.PlanViewHold
 
         TextView plan, desc;
         ImageView myImage;
+        ConstraintLayout mainLayout;
 
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
             plan = itemView.findViewById(R.id.plan_txt);
             desc = itemView.findViewById(R.id.desc_txt);
             myImage = itemView.findViewById(R.id.myImageView);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
 }
