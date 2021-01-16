@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DailyPlannerApp</string>
+
+    <string-array name="plans">
+        <item>get up</item>
+        <item>walk</item>
+        <item>work</item>
+        <item>meal</item>
+        <item>develop</item>
+        <item>break</item>
+        <item>bath</item>
+        <item>sleep</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+        <item>This is random description.</item>
+    </string-array>
+</resources>
